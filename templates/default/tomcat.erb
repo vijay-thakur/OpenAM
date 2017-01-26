@@ -1,0 +1,23 @@
+#!/bin/bash
+# description: Tomcat Start Stop Restart
+# processname: tomcat
+# chkconfig: 234 20 80
+PATH=$JAVA_HOME/bin:$PATH
+export PATH
+CATALINA_HOME=/opt/tomcat7
+export CATALINA_HOME
+#chsh -s /bin/bash tomcat
+
+case $1 in
+ start)
+ sudo sh $CATALINA_HOME/bin/startup.sh
+ ;;
+ stop)
+ sudo sh $CATALINA_HOME/bin/shutdown.sh
+ ;;
+ restart)
+ sudo sh $CATALINA_HOME/bin/shutdown.sh
+ sudo sh $CATALINA_HOME/bin/startup.sh
+ ;;
+esac
+exit 0
